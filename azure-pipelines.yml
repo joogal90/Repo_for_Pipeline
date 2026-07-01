@@ -41,19 +41,4 @@ stages:
         terraform plan -out=tfplan
       displayName: "Terraform Plan"
 
-# ==========================
-# Terraform Apply
-# ==========================
-- stage: Apply
-  displayName: "Terraform Apply"
-  dependsOn: Plan
 
-  jobs:
-  - job: TerraformApply
-    displayName: "Deploy Infrastructure"
-
-    steps:
-    - script: |
-        terraform init
-        terraform apply -auto-approve
-      displayName: "Terraform Apply"
